@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Über mich – Tim Hechenberger">
+  <section class="space-y-10">
+    <!-- ABOUT CARD -->
+    <div class="rounded-3xl bg-white shadow-soft border border-slate-100 p-6 md:p-8">
+      <h2 class="text-3xl font-extrabold mb-6">Über mich</h2>
+
+      <div class="grid gap-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] items-center">
+        <!-- FOTO -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-gray-50">
+            <img
+              src="/images/Tim.jpg"
+              alt="Foto von Tim Hechenberger"
+              class="w-56 h-auto max-h-80 object-cover"
+            />
+          </div>
+          <div class="text-center text-sm text-gray-600">
+            <p class="font-semibold">Tim Hechenberger</p>
+            <p>Schüler · HTL Saalfelden / St. Johann</p>
+          </div>
+        </div>
+
+        <!-- TEXT -->
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>
+            Ich bin <strong>Tim Hechenberger</strong>, derzeit Schüler der
+            <strong> HTL Saalfelden / St. Johann</strong>.
+          </p>
+          <p>
+            Ich interessiere mich für moderne Webentwicklung, Softwarearchitektur
+            und kreative Problemlösungen. Dabei ist mir wichtig,
+            dass Projekte nicht nur funktionieren, sondern auch sauber strukturiert,
+            wartbar und verständlich sind.
+          </p>
+          <p>
+            Ich arbeite gerne projektorientiert, strukturiert und mit Fokus auf eine
+            klare und saubere Umsetzung – egal ob es um Schulprojekte, eigene Ideen
+            oder neue Technologien zum Ausprobieren geht.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZITAT-CARD -->
+    <div class="rounded-3xl bg-white shadow-soft border border-slate-100 p-6 md:p-8">
+      <h3 class="text-xl font-semibold text-blue-900 mb-3">Zitat</h3>
+      <blockquote class="text-gray-700 italic leading-relaxed border-l-4 border-blue-400 pl-4">
+        “Preoccupied with a single leaf, you won't see the tree. Preoccupied with a single tree,
+        you'll miss the entire forest.”
+      </blockquote>
+    </div>
+
+    <!-- TIMELINE SECTION -->
+    <section class="mt-2">
+      <h3 class="text-2xl font-bold mb-8">Mein Werdegang</h3>
+
+      <div class="relative border-l-4 border-blue-200 pl-6 space-y-10">
+
+        <!-- Eintrag 1 -->
+        <div class="relative">
+          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+            <p class="text-sm text-blue-600 font-bold">2011</p>
+            <h4 class="font-semibold text-lg">Volkschule</h4>
+            <p class="text-gray-700 text-sm mt-1">
+              Beginn meiner 4-jährigen Volksschulzeit Bruck an der Großglocknerstraße im Pinzgau.
+            </p>
+          </div>
+        </div>
+
+        <!-- Eintrag 2 -->
+        <div class="relative">
+          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+            <p class="text-sm text-blue-600 font-bold">2015</p>
+            <h4 class="font-semibold text-lg">Mittelschule</h4>
+            <p class="text-gray-700 text-sm mt-1">
+              Start der 4-jährigen Mittelschule in Bruck an der Großglocknerstraße im Pinzgau.
+            </p>
+          </div>
+        </div>
+
+        <!-- Eintrag 3 -->
+        <div class="relative">
+          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+            <p class="text-sm text-blue-600 font-bold">2019</p>
+            <h4 class="font-semibold text-lg">HTL Informatik</h4>
+            <p class="text-gray-700 text-sm mt-1">
+              Eintritt in die 5-jährige HTL mit Schwerpunkt Informatik in St. Johann.
+            </p>
+          </div>
+        </div>
+
+        <!-- Eintrag 4 -->
+        <div class="relative">
+          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+            <p class="text-sm text-blue-600 font-bold">2022</p>
+            <h4 class="font-semibold text-lg">Praktikum Hagleitner</h4>
+            <p class="text-gray-700 text-sm mt-1">
+              Erstes Berufspraktikum bei der Hagleitner GmbH für 4 Wochen.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </section>
+</Layout>

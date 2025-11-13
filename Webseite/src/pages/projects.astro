@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+// 👉 deinen GitHub-User hier anpassen, falls nötig
+const username = "timhechenberger";
+
+// Optional: bestimmte Repos hervorheben
+const featuredOnly: string[] = []; // z. B. ["EscapeTheLore"]
+
+// GitHub API abrufen
+const headers: Record<string, string> = {
+  "Accept": "application/vnd.github+json",
+  "X-GitHub-Api-Version": "2022-11-28",
+};
+if (import.meta.env.GITHUB_TOKEN) {
+  headers["Authorization"] = `Bearer ${import.meta.env.GITHUB_TOKEN}`;
+}
+
+const res = await fetch(
+  `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
+  { headers }
+);
+
+if (!res.ok) {
+  console.error("GitHub API Fehler:", res.status, await res.text());
+}
+
+const repos = res.ok ? await res.json() : [];
+
+// 🖼 Repos mappen mit Fallback-Bild
+let list = repos
+  .filter((r: any) => !r.fork)
+  .filter((r: any) => (featuredOnly.length ? featuredOnly.includes(r.name) : true))
+  .map((r: any) => {
+    const ogImage = `https://opengraph.githubassets.com/1/${username}/${r.name}`;
+    const fallback = "/images/fallback-project.png"; // liegt in public/images/
+    return {
+      title: r.name,
+      desc: r.description ?? "Kein Beschreibungstext vorhanden.",
+      image: ogImage,
+      fallback,
+      repo: r.html_url,
+      tags: [r.language].filter(Boolean),
+      stars: r.stargazers_count,
+      updated: r.updated_at,
+    };
+  })
+  .sort((a: any, b: any) => {
+    const af = featuredOnly.indexOf(a.title);
+    const bf = featuredOnly.indexOf(b.title);
+    if (af !== -1 || bf !== -1) return (af === -1 ? 9999 : af) - (bf === -1 ? 9999 : bf);
+    return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+  });
+
+// optional Anzahl begrenzen
+const TOP_N = 12;
+list = list.slice(0, TOP_N);
+---
+
+<Layout title="Projekte">
+  <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Meine GitHub-Projekte</h2>
+  <p class="text-gray-600 mb-6">Automatisch aus GitHub geladen – mit Vorschau, Sprache & Link zum Code.</p>
+
+  {list.length === 0 ? (
+    <p class="text-gray-500">Keine Repos gefunden oder API-Limit erreicht.</p>
+  ) : (
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {list.map((p) => <ProjectCard {...p} />)}
+    </div>
+  )}
+</Layout>

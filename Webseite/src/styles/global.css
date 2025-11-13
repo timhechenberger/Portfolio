@@ -1,0 +1,229 @@
+/* Tailwind Kern */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================
+   UTILITIES
+   ========================== */
+@layer utilities {
+  /* sanfter, moderner Schatten für Cards/Buttons */
+  .shadow-soft {
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  }
+
+  /* Gesamtseite sanft einblenden */
+  .animate-page-in {
+    animation: page-in 0.5s ease-out;
+  }
+
+  /* Card sanft „reinsliden“ */
+  .animate-card-in {
+    animation: card-in 0.5s ease-out 0.08s backwards;
+  }
+
+  /* Header von oben */
+  .animate-header-in {
+    animation: header-in 0.45s ease-out;
+  }
+
+  /* animierter Hintergrund-Verlauf */
+  .bg-animated {
+    background-image: radial-gradient(60% 60% at 50% 0%, #eef4ff 0, #ffffff 60%);
+    background-size: 120% 120%;
+    animation: bg-shift 18s ease-in-out infinite alternate;
+  }
+
+  /* animierter Blob im Hintergrund */
+  .animate-blob {
+    animation: blob 16s ease-in-out infinite;
+  }
+
+  /* Hobbys – endlos scrollende Leiste (falls du die nutzt) */
+  .hobby-marquee {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: hobby-marquee 20s linear infinite;
+  }
+
+  /* Tech-Icons – endlos scrollende Leiste */
+  .tech-marquee {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    animation: tech-marquee 22s linear infinite;
+  }
+}
+
+/* bei „reduced motion“ Animation ausschalten (Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  .hobby-marquee,
+  .tech-marquee {
+    animation: none;
+  }
+}
+
+/* ==========================
+   KEYFRAMES (Animationen)
+   ========================== */
+
+/* Seite leicht von unten einblenden */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card-Fade-In mit kleinem Zoom */
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header leicht von oben einblenden */
+@keyframes header-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hintergrund-Verlauf minimal verschieben */
+@keyframes bg-shift {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 48% 8%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+/* Blob bewegt sich leicht */
+@keyframes blob {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, 18px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Shine-Effekt im Logo */
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Hobbys – Marquee-Bewegung (rechts -> links) */
+@keyframes hobby-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tech-Icons – Marquee-Bewegung (links -> rechts) */
+@keyframes tech-marquee {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================
+   COMPONENTS
+   ========================== */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-white bg-blue-600 hover:bg-blue-700 transition shadow-soft;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 border border-slate-200 bg-white hover:bg-slate-50 transition;
+  }
+
+  /* NAV-LINK mit Underline-Slide-Effekt */
+  .navlink {
+    @apply relative text-gray-700 hover:text-blue-600 transition-colors duration-200;
+  }
+
+  .navlink::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.15rem;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+  }
+
+  .navlink:hover::after {
+    transform: scaleX(1);
+  }
+
+  .feature {
+    @apply bg-white rounded-2xl border border-slate-100 p-5 shadow-soft text-center;
+  }
+
+  .feature-icon {
+    @apply text-2xl;
+  }
+
+  .feature-title {
+    @apply mt-2 font-semibold;
+  }
+
+  .feature-text {
+    @apply text-gray-600;
+  }
+
+  /* leichter Shine-Effekt auf deinem Namen im Header */
+  .logo-shine {
+    background-image: linear-gradient(
+      120deg,
+      #2563eb 0%,
+      #2563eb 40%,
+      #a5b4fc 50%,
+      #2563eb 60%,
+      #2563eb 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 6s linear infinite;
+  }
+}

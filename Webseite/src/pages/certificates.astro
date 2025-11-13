@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const certs = [
+  {
+    name: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    date: "28. November 2024",
+    note: "Grundlagen der Cybersicherheit – Bedrohungen, Sicherheitskonzepte, Netzwerk-Schutz, Datenschutz.",
+    logo: "/images/certs/cisco-cybersecurity.png",
+    link: "https://www.credly.com/badges/60f1968e-a58d-420c-b102-d0c936fada41/public_url", // optional: deinen Badge-Link einfügen
+    skills: [
+      "Cyber Best Practices",
+      "Cybersecurity Basics",
+      "Network Vulnerabilities",
+      "Threat Detection",
+      "Privacy & Confidentiality"
+    ]
+  },
+
+  {
+    name: "ECDL / ICDL",
+    issuer: "ECDL Foundation",
+    date: "—", // Falls du ein Datum hast → eintragen
+    note: "Europäischer Computerführerschein – grundlegende IT-, Office- und Computerkenntnisse.",
+    logo: "/images/certs/ecdl.png",
+    link: "",
+    skills: [
+      "Computer Essentials",
+      "Online Essentials",
+      "Word Processing",
+      "Spreadsheets"
+    ]
+  }
+];
+---
+
+<Layout title="Zertifikate & Badges">
+  <h2 class="text-3xl font-bold mb-6">Zertifikate & Badges</h2>
+
+  <ul class="grid sm:grid-cols-2 gap-6">
+    {certs.map((c) => (
+      <li class="flex flex-col gap-4 p-5 border rounded-2xl border-gray-200 hover:shadow-md bg-white transition">
+        <div class="flex items-center gap-4">
+          <img src={c.logo} alt={c.name} class="w-20 h-20 object-contain rounded-lg bg-gray-50 p-2" />
+
+          <div>
+            <p class="font-semibold text-lg">{c.name}</p>
+            <p class="text-gray-600">{c.issuer}</p>
+            {c.date && <p class="text-sm text-gray-500">{c.date}</p>}
+          </div>
+        </div>
+
+        <p class="text-gray-700 text-sm">{c.note}</p>
+
+        <div class="flex flex-wrap gap-2 mt-2">
+          {c.skills.map((s) => (
+            <span class="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded-full border border-blue-100">
+              {s}
+            </span>
+          ))}
+        </div>
+
+        {c.link && (
+          <a href={c.link} target="_blank" class="text-blue-600 text-sm hover:underline mt-3">
+            Zertifikat ansehen →
+          </a>
+        )}
+      </li>
+    ))}
+  </ul>
+</Layout>
