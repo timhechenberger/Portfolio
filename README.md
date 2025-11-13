@@ -7,4 +7,4 @@ Dies ist mein persönliches Portfolio-Projekt, das ich im Rahmen einer Aufgabe e
 Hier präsentiere ich:
 - Meine Projekte
 - Meine Zertifikate
-- Meine Visionen und persönlichen Zielelly
+- Meine Visionen und persönlichen Ziele
