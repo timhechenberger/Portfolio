@@ -22,9 +22,10 @@ const year = new Date().getFullYear();
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   </head>
 
-  <!-- sanfter Verlauf + animierter Hintergrund + kein horizontaler Scroll -->
-  <body class="font-[Inter] antialiased min-h-dvh bg-animated text-gray-800 animate-page-in overflow-x-hidden">
-
+  <!-- Body jetzt als Flex-Column mit voller Höhe -->
+  <body
+    class="font-[Inter] antialiased min-h-dvh bg-animated text-gray-800 animate-page-in overflow-x-hidden flex flex-col"
+  >
     <!-- weicher, animierter Blob im Hintergrund -->
     <div
       class="pointer-events-none fixed inset-x-0 top-[-10rem] flex justify-center blur-3xl opacity-60 -z-10"
@@ -34,7 +35,9 @@ const year = new Date().getFullYear();
     </div>
 
     <!-- Glass-Header, sticky, dezenter Schatten, Header-Fade-In -->
-    <header class="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-blue-100/60 shadow-[0_1px_0_0_rgba(59,130,246,0.08)] animate-header-in">
+    <header
+      class="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-blue-100/60 shadow-[0_1px_0_0_rgba(59,130,246,0.08)] animate-header-in"
+    >
       <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
         <a
           href="/"
@@ -51,18 +54,18 @@ const year = new Date().getFullYear();
       </div>
     </header>
 
-    <!-- Hauptbereich: „Card“-Container auf Weiß mit Card-Animation -->
-    <main class="max-w-5xl mx-auto px-5 py-10 md:py-14">
-      <section class="bg-white rounded-3xl shadow-soft p-6 md:p-10 border border-slate-100 animate-card-in">
+    <!-- Hauptbereich: bekommt flex-1, damit er den Platz zwischen Header & Footer füllt -->
+    <main class="flex-1 max-w-5xl mx-auto px-5 py-10 md:py-14">
+      <section class="bg-slate-50 rounded-3xl shadow-soft p-6 md:p-10 border border-slate-200 animate-card-in">
         <slot />
       </section>
     </main>
 
-    <!-- heller Footer -->
+    <!-- heller Footer – wird durch flex-1 vom main nach unten gedrückt -->
     <footer class="border-t border-blue-100/60 bg-white">
       <div class="max-w-6xl mx-auto px-5 py-8 text-center text-sm text-gray-600">
         © {year} Tim Hechenberger · gebaut mit Astro & Tailwind ·
-        <a href="https://berserk.fandom.com/wiki/Guts" class="text-blue-600 hover:underline">Kontakt</a>
+        <a href="mailto:dein@mail.tld" class="text-blue-600 hover:underline">Kontakt</a>
         · <a href="https://github.com/timhechenberger" class="hover:underline">GitHub</a>
       </div>
     </footer>

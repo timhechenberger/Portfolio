@@ -27,9 +27,14 @@
     animation: header-in 0.45s ease-out;
   }
 
-  /* animierter Hintergrund-Verlauf */
+  /* animierter Hintergrund-Verlauf – jetzt mit mehr Grau */
   .bg-animated {
-    background-image: radial-gradient(60% 60% at 50% 0%, #eef4ff 0, #ffffff 60%);
+    background-image: radial-gradient(
+      80% 80% at 50% 0%,
+      #e5edff 0,
+      #f3f4f6 40%,
+      #e5e7eb 100%
+    );
     background-size: 120% 120%;
     animation: bg-shift 18s ease-in-out infinite alternate;
   }
@@ -168,13 +173,14 @@
     @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-white bg-blue-600 hover:bg-blue-700 transition shadow-soft;
   }
 
+  /* Ghost-Button jetzt leicht grau statt rein weiß */
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 border border-slate-200 bg-white hover:bg-slate-50 transition;
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 border border-slate-300 bg-slate-50 hover:bg-slate-100 transition;
   }
 
   /* NAV-LINK mit Underline-Slide-Effekt */
   .navlink {
-    @apply relative text-gray-700 hover:text-blue-600 transition-colors duration-200;
+    @apply relative text-slate-700 hover:text-blue-600 transition-colors duration-200;
   }
 
   .navlink::after {
@@ -194,8 +200,9 @@
     transform: scaleX(1);
   }
 
+  /* Feature-Karten jetzt auch leicht grau */
   .feature {
-    @apply bg-white rounded-2xl border border-slate-100 p-5 shadow-soft text-center;
+    @apply bg-slate-50 rounded-2xl border border-slate-200 p-5 shadow-soft text-center;
   }
 
   .feature-icon {
@@ -203,11 +210,11 @@
   }
 
   .feature-title {
-    @apply mt-2 font-semibold;
+    @apply mt-2 font-semibold text-slate-800;
   }
 
   .feature-text {
-    @apply text-gray-600;
+    @apply text-slate-600;
   }
 
   /* leichter Shine-Effekt auf deinem Namen im Header */
