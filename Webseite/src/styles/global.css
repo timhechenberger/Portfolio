@@ -234,3 +234,82 @@
     animation: shine 6s linear infinite;
   }
 }
+
+/* ==========================
+   RESPONSIVE LAYOUT (Handy, Tablet, Desktop)
+   ========================== */
+
+@layer components {
+  /* Zentrierter Wrapper für Seiteninhalte */
+  .layout-wrapper {
+    @apply max-w-5xl mx-auto px-5;
+  }
+
+  /* Standard-Sections mit responsiven Abständen */
+  .section {
+    @apply py-10 md:py-14;
+  }
+
+  /* Hero-Grid: Handy = 1 Spalte, Tablet+ = 2 Spalten */
+  .hero-grid {
+    @apply grid gap-8 items-center;
+  }
+
+  /* Buttons im Hero: Handy = untereinander, ab sm nebeneinander */
+  .hero-actions {
+    @apply flex flex-col gap-3 sm:flex-row sm:justify-center;
+  }
+
+  /* Grid für Features/Hobbys – gut für About/Startseite */
+  .features-grid {
+    @apply grid gap-6;
+  }
+
+  /* Grid für Projekte (z. B. ProjectCard-Liste) */
+  .projects-grid {
+    @apply grid gap-5;
+  }
+
+  /* Text: zentral auf Handy, linksbündig auf größeren Screens */
+  .text-responsive-center {
+    @apply text-center md:text-left;
+  }
+
+  /* Navigation: mobile vs. Desktop (falls du sie verwenden willst) */
+  .nav-desktop {
+    @apply hidden sm:flex items-center gap-5 text-sm font-medium;
+  }
+
+  .nav-mobile {
+    @apply flex items-center justify-between sm:hidden;
+  }
+}
+
+/* Breakpoints über @screen – baut auf Mobile-First auf */
+@layer components {
+  @screen sm {
+    .features-grid {
+      @apply grid-cols-3;
+    }
+
+    .projects-grid {
+      @apply grid-cols-2;
+    }
+  }
+
+  @screen md {
+    .hero-grid {
+      @apply grid-cols-2;
+    }
+  }
+
+  @screen lg {
+    .section {
+      @apply py-20;
+    }
+
+    .projects-grid {
+      @apply grid-cols-3;
+    }
+  }
+}
