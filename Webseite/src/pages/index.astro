@@ -4,45 +4,69 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Willkommen – Mein Portfolio" description="Klar, schnell, nutzerzentriert.">
   <!-- Hero -->
   <section class="text-center">
-    <h1 class="mt-5 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-      Hallo, ich bin <span class="from-blue-600 to-violet-600 bg-gradient-to-r bg-clip-text text-transparent">Tim Hechenberger</span>
+    <h1
+      class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
+    >
+      Hallo, ich bin
+      <span
+        class="from-blue-600 to-violet-600 bg-gradient-to-r bg-clip-text text-transparent"
+        >Tim Hechenberger</span
+      >
     </h1>
 
-    <div class="mt-8 flex justify-center gap-3">
+    <div
+      class="mt-6 flex flex-col sm:flex-row sm:justify-center gap-3"
+    >
       <a href="/projects" class="btn-primary">Projekte ansehen</a>
       <a href="/about" class="btn-ghost">Über mich</a>
     </div>
   </section>
 
   <!-- Hobbys-Section -->
-  <section class="mt-14 grid sm:grid-cols-3 gap-6">
-    <div class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200">
+  <section class="mt-10 grid gap-4 sm:grid-cols-3">
+    <div
+      class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200"
+    >
       <div class="feature-icon text-3xl">💪</div>
       <h3 class="feature-title">Trainieren</h3>
-      <p class="feature-text">Gym & Laufen – für Fokus, Energie und Ausgleich</p>
+      <p class="feature-text">
+        Gym & Laufen – für Fokus, Energie und Ausgleich
+      </p>
     </div>
 
-    <div class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200">
+    <div
+      class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200"
+    >
       <div class="feature-icon text-3xl">🎮</div>
       <h3 class="feature-title">Gamen</h3>
-      <p class="feature-text">Computerspielen als kreative Pause und Strategie-Training.</p>
+      <p class="feature-text">
+        Computerspielen als kreative Pause und Strategie-Training.
+      </p>
     </div>
 
-    <div class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200">
+    <div
+      class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200"
+    >
       <div class="feature-icon text-3xl">🎧</div>
       <h3 class="feature-title">Musik hören</h3>
-      <p class="feature-text">Musik motiviert mich und hilft mir in schweren Zeiten</p>
+      <p class="feature-text">
+        Musik motiviert mich und hilft mir in schweren Zeiten
+      </p>
     </div>
   </section>
 
   <!-- Skills / Tech Stack -->
-  <section class="mt-14 p-6 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100">
-    <h4 class="font-semibold text-blue-900 text-lg mb-4">Was ich mitbringe</h4>
+  <section
+    class="mt-10 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100"
+  >
+    <h4 class="font-semibold text-blue-900 text-lg mb-4">
+      Was ich mitbringe
+    </h4>
 
     <!-- Tech Icons – Karussell -->
     <div class="overflow-hidden mb-6">
       <div class="tech-marquee">
-        <!-- Satz 1 -->
+        <!-- Icons wie gehabt -->
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-9 h-9" />
@@ -58,7 +82,7 @@ import Layout from "../layouts/Layout.astro";
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-9 h-9" />
 
-        <!-- Satz 2 – für nahtlosen Loop wiederholt -->
+        <!-- Wiederholung für Loop -->
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-9 h-9" />
@@ -76,12 +100,25 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
 
-    <!-- Description -->
-    <div class="grid sm:grid-cols-2 gap-3 text-gray-700 text-sm leading-relaxed">
-      <p>💡 <strong>Backend:</strong> Python, Node.js — sichere APIs, Logik und Datenverarbeitung.</p>
-      <p>🎨 <strong>Frontend:</strong> React & Angular — dynamische, moderne Webinterfaces.</p>
-      <p>⚙️ <strong>Sprachen:</strong> C, C#, Java, TypeScript, JavaScript — vielseitig einsetzbar.</p>
-      <p>📚 <strong>Derzeit:</strong> Schüler der HTL Saalfelden / St. Johann — Fokus auf Softwareentwicklung & IT-Security.</p>
+    <div
+      class="grid gap-3 sm:grid-cols-2 text-gray-700 text-sm leading-relaxed"
+    >
+      <p>
+        💡 <strong>Backend:</strong> Python, Node.js — sichere APIs, Logik und
+        Datenverarbeitung.
+      </p>
+      <p>
+        🎨 <strong>Frontend:</strong> React & Angular — dynamische, moderne
+        Webinterfaces.
+      </p>
+      <p>
+        ⚙️ <strong>Sprachen:</strong> C, C#, Java, TypeScript, JavaScript —
+        vielseitig einsetzbar.
+      </p>
+      <p>
+        📚 <strong>Derzeit:</strong> Schüler der HTL Saalfelden / St. Johann —
+        Fokus auf Softwareentwicklung & IT-Security.
+      </p>
     </div>
   </section>
 </Layout>

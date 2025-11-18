@@ -7,6 +7,10 @@
    BASE (Grundstyles)
    ========================== */
 @layer base {
+  :root {
+    color-scheme: light; /* Browser sagen: Seite ist hell, nicht automatisch abdunkeln */
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -14,6 +18,7 @@
   body {
     @apply text-gray-800;
     background-color: #ffffff; /* Basis: Weiß */
+    overflow-x: hidden;        /* horizontalen Scroll auf Handy verhindern */
   }
 
   img {
@@ -65,7 +70,7 @@
     animation: blob 16s ease-in-out infinite;
   }
 
-  /* Hobbys – endlos scrollende Leiste (falls du die nutzt) */
+  /* Hobbys – endlos scrollende Leiste */
   .hobby-marquee {
     display: flex;
     gap: 1.5rem;
@@ -194,7 +199,6 @@
     @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-white bg-blue-600 hover:bg-blue-700 transition shadow-soft;
   }
 
-  /* Ghost-Button jetzt leicht grau statt rein weiß */
   .btn-ghost {
     @apply inline-flex items-center justify-center rounded-xl px-5 py-3 border border-slate-300 bg-slate-50 hover:bg-slate-100 transition;
   }
@@ -261,42 +265,34 @@
    ========================== */
 
 @layer components {
-  /* Zentrierter Wrapper für Seiteninhalte (falls du ihn nutzen willst) */
   .layout-wrapper {
     @apply max-w-5xl mx-auto px-5;
   }
 
-  /* Standard-Sections mit responsiven Abständen */
   .section {
     @apply py-10 md:py-14;
   }
 
-  /* Hero-Grid: Handy = 1 Spalte, Tablet+ = 2 Spalten */
   .hero-grid {
     @apply grid gap-8 items-center;
   }
 
-  /* Buttons im Hero (wenn du hero-actions im HTML nutzen willst) */
   .hero-actions {
     @apply flex flex-col gap-3 sm:flex-row sm:justify-center;
   }
 
-  /* Grid für Features/Hobbys – gut für About/Startseite */
   .features-grid {
     @apply grid gap-6;
   }
 
-  /* Grid für Projekte (z. B. ProjectCard-Liste) */
   .projects-grid {
     @apply grid gap-5;
   }
 
-  /* Text: zentral auf Handy, linksbündig auf größeren Screens */
   .text-responsive-center {
     @apply text-center md:text-left;
   }
 
-  /* Navigation: mobile vs. Desktop (wenn du später Mobile-Nav einbaust) */
   .nav-desktop {
     @apply hidden sm:flex items-center gap-5 text-sm font-medium;
   }
@@ -306,7 +302,6 @@
   }
 }
 
-/* Breakpoints über @screen – baut auf Mobile-First auf */
 @layer components {
   @screen sm {
     .features-grid {
@@ -338,16 +333,13 @@
 /* ==========================
    MOBILE-FEINTUNING
    ========================== */
-
-/* Handy-spezifische Anpassungen */
 @media (max-width: 640px) {
-  /* Auf Handy: Hintergrund wirklich rein weiß, kein Verlauf */
   .bg-animated {
     background-image: none;
     background-color: #ffffff !important;
   }
 
-  /* Hero-Buttons untereinander statt gequetscht nebeneinander */
+  /* Hero-Buttons untereinander und schön zentriert */
   section.text-center > .flex {
     flex-direction: column;
     align-items: stretch;

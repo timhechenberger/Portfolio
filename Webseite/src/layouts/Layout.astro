@@ -13,39 +13,50 @@ const year = new Date().getFullYear();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.ico" />
     <!-- moderne, gut lesbare Schrift -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <!-- Body jetzt als Flex-Column mit voller Höhe -->
+  <!-- Body: Handy = weiß, ab md animierter Hintergrund -->
   <body
-    class="font-[Inter] antialiased min-h-dvh bg-animated text-gray-800 animate-page-in overflow-x-hidden flex flex-col"
+    class="font-[Inter] antialiased min-h-dvh bg-white md:bg-animated text-gray-800 animate-page-in overflow-x-hidden flex flex-col"
   >
-    <!-- weicher, animierter Blob im Hintergrund -->
+    <!-- Blob nur ab md sichtbar -->
     <div
-      class="pointer-events-none fixed inset-x-0 top-[-10rem] flex justify-center blur-3xl opacity-60 -z-10"
+      class="pointer-events-none fixed inset-x-0 top-[-10rem] hidden md:flex justify-center blur-3xl opacity-60 -z-10"
       aria-hidden="true"
     >
-      <div class="h-48 w-[36rem] bg-gradient-to-tr from-blue-200 to-indigo-200 rounded-full animate-blob"></div>
+      <div
+        class="h-48 w-[36rem] bg-gradient-to-tr from-blue-200 to-indigo-200 rounded-full animate-blob"
+      ></div>
     </div>
 
-    <!-- Glass-Header, sticky, dezenter Schatten, Header-Fade-In -->
+    <!-- Header -->
     <header
-      class="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-blue-100/60 shadow-[0_1px_0_0_rgba(59,130,246,0.08)] animate-header-in"
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-blue-100/60 shadow-[0_1px_0_0_rgba(59,130,246,0.08)] animate-header-in"
     >
-      <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-5 py-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+      >
         <a
           href="/"
-          class="text-xl md:text-2xl font-extrabold tracking-tight text-blue-600 hover:opacity-90 transition-transform duration-150 hover:-translate-y-0.5"
+          class="text-lg sm:text-2xl font-extrabold tracking-tight text-blue-600 hover:opacity-90 transition-transform duration-150 hover:-translate-y-0.5"
         >
           <span class="logo-shine">Tim Hechenberger</span>
         </a>
-        <nav class="hidden sm:flex items-center gap-5 text-sm font-medium">
+
+        <nav
+          class="flex flex-wrap gap-x-4 gap-y-1 text-xs sm:text-sm font-medium justify-start sm:justify-end"
+        >
           <a href="/" class="navlink">Start</a>
           <a href="/projects" class="navlink">Projekte</a>
           <a href="/certificates" class="navlink">Zertifikate</a>
@@ -54,19 +65,36 @@ const year = new Date().getFullYear();
       </div>
     </header>
 
-    <!-- Hauptbereich: bekommt flex-1, damit er den Platz zwischen Header & Footer füllt -->
-    <main class="flex-1 max-w-5xl mx-auto px-5 py-10 md:py-14">
-      <section class="bg-slate-50 rounded-3xl shadow-soft p-6 md:p-10 border border-slate-200 animate-card-in">
-        <slot />
-      </section>
+    <!-- Hauptbereich: erst full width, dann max-w Container -->
+    <main class="flex-1 w-full">
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-5 py-8 sm:py-10 md:py-14"
+      >
+        <section
+          class="bg-slate-50 rounded-3xl shadow-soft p-5 sm:p-6 md:p-10 border border-slate-200 animate-card-in"
+        >
+          <slot />
+        </section>
+      </div>
     </main>
 
-    <!-- heller Footer – wird durch flex-1 vom main nach unten gedrückt -->
+    <!-- Footer -->
     <footer class="border-t border-blue-100/60 bg-white">
-      <div class="max-w-6xl mx-auto px-5 py-8 text-center text-sm text-gray-600">
+      <div
+        class="max-w-6xl mx-auto px-5 py-8 text-center text-sm text-gray-600"
+      >
         © {year} Tim Hechenberger · gebaut mit Astro & Tailwind ·
-        <a href="https://berserk.fandom.com/de/wiki/Guts" class="text-blue-600 hover:underline">Kontakt</a>
-        · <a href="https://github.com/timhechenberger" class="hover:underline">GitHub</a>
+        <a
+          href="https://berserk.fandom.com/de/wiki/Guts"
+          class="text-blue-600 hover:underline"
+          >Kontakt</a
+        >
+        ·
+        <a
+          href="https://github.com/timhechenberger"
+          class="hover:underline"
+          >GitHub</a
+        >
       </div>
     </footer>
   </body>
