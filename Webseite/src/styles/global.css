@@ -4,6 +4,26 @@
 @tailwind utilities;
 
 /* ==========================
+   BASE (Grundstyles)
+   ========================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-800;
+    background-color: #ffffff; /* Basis: Weiß */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ==========================
    UTILITIES
    ========================== */
 @layer utilities {
@@ -27,7 +47,7 @@
     animation: header-in 0.45s ease-out;
   }
 
-  /* animierter Hintergrund-Verlauf – jetzt mit mehr Grau */
+  /* animierter Hintergrund-Verlauf – Desktop / Tablet */
   .bg-animated {
     background-image: radial-gradient(
       80% 80% at 50% 0%,
@@ -36,6 +56,7 @@
       #e5e7eb 100%
     );
     background-size: 120% 120%;
+    background-color: #ffffff;
     animation: bg-shift 18s ease-in-out infinite alternate;
   }
 
@@ -200,7 +221,7 @@
     transform: scaleX(1);
   }
 
-  /* Feature-Karten jetzt auch leicht grau */
+  /* Feature-Karten */
   .feature {
     @apply bg-slate-50 rounded-2xl border border-slate-200 p-5 shadow-soft text-center;
   }
@@ -240,7 +261,7 @@
    ========================== */
 
 @layer components {
-  /* Zentrierter Wrapper für Seiteninhalte */
+  /* Zentrierter Wrapper für Seiteninhalte (falls du ihn nutzen willst) */
   .layout-wrapper {
     @apply max-w-5xl mx-auto px-5;
   }
@@ -255,7 +276,7 @@
     @apply grid gap-8 items-center;
   }
 
-  /* Buttons im Hero: Handy = untereinander, ab sm nebeneinander */
+  /* Buttons im Hero (wenn du hero-actions im HTML nutzen willst) */
   .hero-actions {
     @apply flex flex-col gap-3 sm:flex-row sm:justify-center;
   }
@@ -275,7 +296,7 @@
     @apply text-center md:text-left;
   }
 
-  /* Navigation: mobile vs. Desktop (falls du sie verwenden willst) */
+  /* Navigation: mobile vs. Desktop (wenn du später Mobile-Nav einbaust) */
   .nav-desktop {
     @apply hidden sm:flex items-center gap-5 text-sm font-medium;
   }
@@ -311,5 +332,34 @@
     .projects-grid {
       @apply grid-cols-3;
     }
+  }
+}
+
+/* ==========================
+   MOBILE-FEINTUNING
+   ========================== */
+
+/* Handy-spezifische Anpassungen */
+@media (max-width: 640px) {
+  /* Auf Handy: Hintergrund wirklich rein weiß, kein Verlauf */
+  .bg-animated {
+    background-image: none;
+    background-color: #ffffff !important;
+  }
+
+  /* Hero-Buttons untereinander statt gequetscht nebeneinander */
+  section.text-center > .flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  section.text-center > .flex .btn-primary,
+  section.text-center > .flex .btn-ghost {
+    display: flex;
+    width: 100%;
+    max-width: 18rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
