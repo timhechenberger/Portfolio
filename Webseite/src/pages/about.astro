@@ -30,13 +30,11 @@ import Layout from "../layouts/Layout.astro";
             <strong> HTL Saalfelden / St. Johann</strong>.
           </p>
           <p>
-            Ich interessiere mich für moderne Webentwicklung, Softwarearchitektur
-            und kreative Problemlösungen. Dabei ist mir wichtig,
-            dass Projekte nicht nur funktionieren, sondern auch sauber strukturiert,
-            wartbar und verständlich sind.
+            Ich interessiere mich für Programmiern und bin ein Technik-Freak. Dabei ist mir wichtig,
+            dass Projekte nicht nur funktionieren, sondern auch sauber strukturiert und verständlich sind.
           </p>
           <p>
-            Ich arbeite gerne projektorientiert, strukturiert und mit Fokus auf eine
+            Ich arbeite gerne im Team mit Fokus auf eine
             klare und saubere Umsetzung – egal ob es um Schulprojekte, eigene Ideen
             oder neue Technologien zum Ausprobieren geht.
           </p>
@@ -49,7 +47,7 @@ import Layout from "../layouts/Layout.astro";
       <h3 class="text-xl font-semibold text-blue-900 mb-3">Zitat</h3>
       <blockquote class="text-gray-700 italic leading-relaxed border-l-4 border-blue-400 pl-4">
         “Preoccupied with a single leaf, you won't see the tree. Preoccupied with a single tree,
-        you'll miss the entire forest.”
+        you'll miss the entire forest.” - Vagabond Manga
       </blockquote>
     </div>
 
@@ -57,12 +55,12 @@ import Layout from "../layouts/Layout.astro";
     <section class="mt-2">
       <h3 class="text-2xl font-bold mb-8">Mein Werdegang</h3>
 
-      <div class="relative border-l-4 border-blue-200 pl-6 space-y-10">
-
+      <!-- animierte Timeline-Linie -->
+      <div class="timeline-line">
         <!-- Eintrag 1 -->
         <div class="relative">
-          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
-          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+          <div class="timeline-dot"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5 mt-2">
             <p class="text-sm text-blue-600 font-bold">2013</p>
             <h4 class="font-semibold text-lg">Volkschule</h4>
             <p class="text-gray-700 text-sm mt-1">
@@ -73,8 +71,8 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Eintrag 2 -->
         <div class="relative">
-          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
-          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+          <div class="timeline-dot"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5 mt-2">
             <p class="text-sm text-blue-600 font-bold">2017</p>
             <h4 class="font-semibold text-lg">Mittelschule</h4>
             <p class="text-gray-700 text-sm mt-1">
@@ -85,8 +83,8 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Eintrag 3 -->
         <div class="relative">
-          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
-          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+          <div class="timeline-dot"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5 mt-2">
             <p class="text-sm text-blue-600 font-bold">2021</p>
             <h4 class="font-semibold text-lg">HTL Informatik</h4>
             <p class="text-gray-700 text-sm mt-1">
@@ -97,8 +95,8 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Eintrag 4 -->
         <div class="relative">
-          <div class="absolute -left-[14px] top-1 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
-          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5">
+          <div class="timeline-dot"></div>
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-5 mt-2">
             <p class="text-sm text-blue-600 font-bold">2023</p>
             <h4 class="font-semibold text-lg">Praktikum Hagleitner</h4>
             <p class="text-gray-700 text-sm mt-1">
@@ -106,7 +104,6 @@ import Layout from "../layouts/Layout.astro";
             </p>
           </div>
         </div>
-
       </div>
     </section>
   </section>

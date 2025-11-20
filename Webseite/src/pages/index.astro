@@ -1,53 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Willkommen – Mein Portfolio" description="Klar, schnell, nutzerzentriert.">
-  <!-- Hero -->
-  <section class="text-center">
-    <h1
-      class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
-    >
-      Hallo, ich bin
-      <span
-        class="from-blue-600 to-violet-600 bg-gradient-to-r bg-clip-text text-transparent"
-        >Tim Hechenberger</span
-      >
-    </h1>
+<Layout
+  title="Willkommen – Mein Portfolio"
+  description="Klar, schnell, nutzerzentriert."
+>
 
-    <div
-      class="mt-6 flex flex-col sm:flex-row sm:justify-center gap-3"
-    >
-      <a href="/projects" class="btn-primary">Projekte ansehen</a>
-      <a href="/about" class="btn-ghost">Über mich</a>
+  <!-- HERO SECTION -->
+  <section
+    class="mt-6 grid gap-12 md:grid-cols-[auto_minmax(0,1fr)] md:items-center"
+  >
+    <!-- FOTO LINKS -->
+    <div class="flex justify-center md:justify-start">
+      <div
+        class="w-40 sm:w-48 md:w-56 rounded-3xl overflow-hidden shadow-soft border border-slate-200 bg-slate-100"
+      >
+        <img
+          src="/images/tim-hero.jpg"
+          alt="Tim Hechenberger"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- TEXT RECHTS -->
+    <div class="text-center md:text-left flex flex-col justify-center">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
+      >
+        Hallo, ich bin
+        <span
+          class="from-blue-600 to-violet-600 bg-gradient-to-r bg-clip-text text-transparent"
+        >
+          Tim Hechenberger
+        </span>
+      </h1>
+
+      <p class="mt-3 text-gray-700 text-sm sm:text-base max-w-md md:max-w-lg">
+        Schüler an der HTL Saalfelden / St. Johann mit Fokus auf Informatik,
+        moderne Webentwicklung und saubere, wartbare Softwareprojekte.
+      </p>
+
+      <div
+        class="mt-5 flex flex-col sm:flex-row gap-3 md:justify-start justify-center"
+      >
+        <a href="/projects" class="btn-primary btn-press">Projekte ansehen</a>
+        <a href="/about" class="btn-ghost btn-press">Über mich</a>
+      </div>
     </div>
   </section>
 
-  <!-- Hobbys-Section -->
-  <section class="mt-10 grid gap-4 sm:grid-cols-3">
+  <!-- HOBBYS -->
+  <section class="mt-14 grid sm:grid-cols-3 gap-6">
     <div
       class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200"
     >
-      <div class="feature-icon text-3xl">💪</div>
+      <div class="feature-icon text-3xl icon-float">💪</div>
       <h3 class="feature-title">Trainieren</h3>
       <p class="feature-text">
-        Gym & Laufen – für Fokus, Energie und Ausgleich
+        Gym – für Fokus und Ausgleich
       </p>
     </div>
 
     <div
       class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200"
     >
-      <div class="feature-icon text-3xl">🎮</div>
+      <div class="feature-icon text-3xl icon-float">🎮</div>
       <h3 class="feature-title">Gamen</h3>
       <p class="feature-text">
-        Computerspielen als kreative Pause und Strategie-Training.
+        Computerspielen - am liebsten mit Freunden.
       </p>
     </div>
 
     <div
       class="feature hover:-translate-y-1 hover:shadow-md transition-transform duration-200"
     >
-      <div class="feature-icon text-3xl">🎧</div>
+      <div class="feature-icon text-3xl icon-float">🎧</div>
       <h3 class="feature-title">Musik hören</h3>
       <p class="feature-text">
         Musik motiviert mich und hilft mir in schweren Zeiten
@@ -55,18 +83,17 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Skills / Tech Stack -->
+  <!-- SKILLS / TECH STACK -->
   <section
-    class="mt-10 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100"
+    class="mt-14 p-6 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100"
   >
     <h4 class="font-semibold text-blue-900 text-lg mb-4">
       Was ich mitbringe
     </h4>
 
-    <!-- Tech Icons – Karussell -->
     <div class="overflow-hidden mb-6">
       <div class="tech-marquee">
-        <!-- Icons wie gehabt -->
+        <!-- Icons unverändert -->
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-9 h-9" />
@@ -81,7 +108,6 @@ import Layout from "../layouts/Layout.astro";
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-9 h-9" />
-
         <!-- Wiederholung für Loop -->
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-9 h-9" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="w-9 h-9" />
@@ -100,9 +126,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
 
-    <div
-      class="grid gap-3 sm:grid-cols-2 text-gray-700 text-sm leading-relaxed"
-    >
+    <div class="grid sm:grid-cols-2 gap-3 text-gray-700 text-sm leading-relaxed">
       <p>
         💡 <strong>Backend:</strong> Python, Node.js — sichere APIs, Logik und
         Datenverarbeitung.
@@ -121,4 +145,5 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </div>
   </section>
+
 </Layout>

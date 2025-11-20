@@ -40,10 +40,9 @@ const certs = [
 
   <ul class="grid sm:grid-cols-2 gap-6">
     {certs.map((c) => (
-      <li class="flex flex-col gap-4 p-5 border rounded-2xl border-gray-200 hover:shadow-md bg-white transition">
-        <div class="flex items-center gap-4">
-          <img src={c.logo} alt={c.name} class="w-20 h-20 object-contain rounded-lg bg-gray-50 p-2" />
-
+     <li class="flex flex-col gap-4 p-5 border rounded-2xl border-gray-200 hover:shadow-md bg-white transition card-hover-lift">
+      <div class="flex items-center gap-4">
+       <img src={c.logo} alt={c.name} class="w-20 h-20 object-contain rounded-lg bg-gray-50 p-2 logo-zoom-soft" />
           <div>
             <p class="font-semibold text-lg">{c.name}</p>
             <p class="text-gray-600">{c.issuer}</p>
