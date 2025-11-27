@@ -28,7 +28,7 @@ if (!res.ok) {
 
 const repos = res.ok ? await res.json() : [];
 
-// 🖼 Repos mappen mit Fallback-Bild
+// Repos mappen mit Fallback-Bild
 let list = repos
   .filter((r: any) => !r.fork)
   .filter((r: any) => (featuredOnly.length ? featuredOnly.includes(r.name) : true))
@@ -54,7 +54,7 @@ let list = repos
   });
 
 // optional Anzahl begrenzen
-const TOP_N = 12;
+const TOP_N = 30;
 list = list.slice(0, TOP_N);
 ---
 
